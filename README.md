@@ -59,4 +59,4 @@ Humidity: 51
 Temperature: 73
 ```
 
-This approach has also been packaged into a [Home Assistant](https://github.com/HyperActiveJ/home-assistant-lennox-local-https) plugin, for the next level of integration.
+This approach has also been packaged into a [Home Assistant](https://github.com/PeteRager/lennoxs30) plugin, for the next level of integration.

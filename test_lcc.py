@@ -3,6 +3,7 @@
 import json
 import requests
 import time
+from timeit import default_timer as timer
 import urllib3
 
 from settings import *
@@ -63,7 +64,16 @@ class Client:
 
     def messages(self):
         while True:
-            resp = requests.get(f"https://{self.ip}/Messages/{self.client_id}/Retrieve", verify=False)
+            start = timer()
+            params = {
+                "Direction": "Oldest-to-Newest",
+                "MessageCount": "10",
+                "StartTime": "1",
+                "LongPollingTimeout": "15"
+            }
+            resp = requests.get(f"https://{self.ip}/Messages/{self.client_id}/Retrieve", params=params, verify=False)
+            finished = timer()
+            print(f"fetched message data in {finished - start:.3f}s")
             if len(resp.text) == 0:
                 time.sleep(1)
                 continue

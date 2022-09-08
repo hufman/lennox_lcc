@@ -21,7 +21,7 @@ client.request_data(["/devices", "/equipments", "/zones"])
 
 lcc = LCC()
 
-influx = influxdb.InfluxDBClient(host=INFLUXDB_HOSTNAME, database=INFLUXDB_DATABASE)
+influx = influxdb.InfluxDBClient(host=INFLUXDB_HOSTNAME, port=INFLUXDB_PORT, database=INFLUXDB_DATABASE)
 
 
 def log_diagnostics(lcc: LCC):

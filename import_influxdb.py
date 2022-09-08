@@ -103,4 +103,13 @@ for message in client.messages():
 
         elif "system" in message["Data"] and "status" in message["Data"]["system"]:
             log_system_status(lcc)
+    elif not message:
+        client.command({
+            "systemControl": {
+                "diagControl": {
+                    "level": 2
+                }
+            }
+        })
+        client.request_data(["/devices", "/equipments", "/zones"])
     #print(json.dumps(message, indent=4, sort_keys=True))

@@ -66,6 +66,7 @@ class Client:
             resp = requests.get(f"https://{self.ip}/Messages/{self.client_id}/Retrieve", verify=False)
             if len(resp.text) == 0:
                 time.sleep(1)
+                yield {}
                 continue
 
             for message in resp.json()["messages"]:

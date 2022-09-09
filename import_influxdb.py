@@ -8,7 +8,7 @@ from lennox_lcc import Client, LCC
 from settings import *
 
 
-client = Client("influxdb_importer", IP)
+client = Client(CLIENT_ID, IP)
 client.command({
     "systemControl": {
         "diagControl": {
